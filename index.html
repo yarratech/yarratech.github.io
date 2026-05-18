@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yarra Kiseleva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text-primary: #1a1a18;
+      --text-secondary: #7a7a74;
+      --border: rgba(0,0,0,0.12);
+      --bg: #fff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-primary: #e8e6e0;
+        --text-secondary: #8a8880;
+        --border: rgba(255,255,255,0.1);
+        --bg: #111110;
+      }
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'EB Garamond', Georgia, serif;
+      min-height: 100vh;
+    }
+
+    #app {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 6rem;
+    }
+
+    .site-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin-bottom: 2.8rem;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-list { list-style: none; }
+
+    .post-item {
+      padding: 0.5rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .post-item:first-child { border-top: 0.5px solid var(--border); }
+
+    .post-link {
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .post-link:hover { opacity: 0.5; }
+
+    /* Coming soon */
+    .coming-soon {
+      display: none;
+      padding-top: 6rem;
+      text-align: center;
+    }
+    .coming-soon.active { display: block; }
+    .coming-soon p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    .back-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .back-link:hover { opacity: 0.5; }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <div id="index">
+    <p class="site-name">Yarra Kiseleva</p>
+    <p class="section-label">blog</p>
+    <ul class="post-list">
+      <li class="post-item">
+        <a class="post-link" href="#" onclick="showComingSoon();return false;">Blog 1</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="coming-soon" class="coming-soon">
+    <p>coming soon</p>
+    <a class="back-link" href="#" onclick="showIndex();return false;">← back</a>
+  </div>
+
+</div>
+<script>
+  function showComingSoon() {
+    document.getElementById('index').classList.add('hidden');
+    document.getElementById('coming-soon').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  function showIndex() {
+    document.getElementById('index').classList.remove('hidden');
+    document.getElementById('coming-soon').classList.remove('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
