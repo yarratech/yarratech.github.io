@@ -1,1 +1,0 @@
-# yarratech.github.io
